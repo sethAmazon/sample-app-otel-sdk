@@ -12,26 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SampleController {
 
+    LongCounter counter;
+
     @Autowired
-    OpenTelemetry openTelemetry;
-
-    Meter meter = openTelemetry.meterBuilder("instrumentation-library-name")
-            .setInstrumentationVersion("1.0.0")
-            .build();
-
-    // Build counter e.g. LongCounter
-    LongCounter counter = meter
-            .counterBuilder("processed_jobs")
-            .setDescription("Processed jobs")
-            .setUnit("1")
-            .build();
-
-    // It is recommended that the API user keep a reference to Attributes they will record against
-    Attributes attributes = Attributes.of(AttributeKey.stringKey("Key"), "SomeWork");
+    public SampleController(LongCounter longCounter) {
+        this.counter = longCounter;
+    }
 
     @GetMapping("/")
-    public String helloWorld() throws InterruptedException {
-        // Record data
+    public String helloWorld() {
+        Attributes attributes = Attributes.of(AttributeKey.stringKey("Key"), "SomeWork");
         counter.add(123, attributes);
         return "Hello World";
     }
