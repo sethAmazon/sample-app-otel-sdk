@@ -16,7 +16,7 @@ public class SampleController {
     OpenTelemetry openTelemetry;
 
     @GetMapping("/")
-    public String helloWorld() {
+    public String helloWorld() throws InterruptedException {
         Meter meter = openTelemetry.meterBuilder("instrumentation-library-name")
                 .setInstrumentationVersion("1.0.0")
                 .build();
@@ -33,6 +33,7 @@ public class SampleController {
 
         // Record data
         counter.add(123, attributes);
+        Thread.sleep(5000);
         return "Hello World";
     }
 }
