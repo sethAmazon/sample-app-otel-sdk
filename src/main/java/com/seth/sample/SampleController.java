@@ -23,7 +23,6 @@ public class SampleController {
                 .builder()
                 .put("jobflow.id", "j-090736814F8YBXJQV5WB")
                 .put("instance.id", "i-01985ec68d1740235")
-                .put("service.name", "system")
                 .build();
         counter.add(123, attributes);
         return "Hello World";
