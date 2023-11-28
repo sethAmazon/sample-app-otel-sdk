@@ -4,7 +4,6 @@ import io.opentelemetry.api.OpenTelemetry;
 import io.opentelemetry.api.metrics.LongCounter;
 import io.opentelemetry.api.metrics.Meter;
 import io.opentelemetry.instrumentation.spring.autoconfigure.EnableOpenTelemetry;
-import io.opentelemetry.sdk.OpenTelemetrySdkBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
