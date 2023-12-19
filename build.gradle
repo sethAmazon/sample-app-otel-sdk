@@ -26,6 +26,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation("io.opentelemetry.instrumentation:opentelemetry-spring-boot-starter")
 	implementation("io.opentelemetry:opentelemetry-sdk-extension-autoconfigure-spi")
+	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	implementation group: 'io.opentelemetry.contrib', name: 'opentelemetry-jmx-metrics', version: '1.32.0-alpha'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
